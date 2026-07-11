@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Генератор картинок</title></head>
+<body style="background:#0a0a0b;color:#eae7e1;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+  <p id="msg">Переходим…</p>
+  <script>
+    fetch('link.txt?_=' + Date.now())
+      .then(r => r.text())
+      .then(t => { location.href = t.trim(); })
+      .catch(() => { document.getElementById('msg').textContent = 'Сайт временно недоступен, попробуйте позже.'; });
+  </script>
+</body>
+</html>
