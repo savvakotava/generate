@@ -1,1 +1,1 @@
-https://api.trycloudflare.com
+https://meanwhile-fuji-forming-nick.trycloudflare.com
