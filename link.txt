@@ -1,1 +1,1 @@
-https://plain-wider-shadow-claimed.trycloudflare.com
+https://api.trycloudflare.com
