@@ -1,1 +1,1 @@
-https://flower-promising-tampa-fame.trycloudflare.com
+https://api.trycloudflare.com
