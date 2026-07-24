@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroHub</title>
+</head>
 
+<body style="background:#0a0a0b;color:#eae7e1;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+  <p id="msg">Переходим…</p>
+
+  <script>
+    async function go() {
+      const msg = document.getElementById('msg');
+
+      try {
+        const response = await fetch('./link.txt?cache=' + Date.now(), {
+          cache: 'no-store'
+        });
+
+        if (!response.ok) {
+          throw new Error('link.txt не найден');
+        }
+
+        const url = (await response.text()).trim();
+
+        if (!url.startsWith('https://')) {
+          throw new Error('Некорректная ссылка в link.txt');
+        }
+
+        msg.textContent = 'Открываем NeuroHub…';
+        window.location.replace(url);
+      } catch (error) {
+        msg.textContent = 'Сайт временно недоступен. Обновите страницу через минуту.';
+        console.error(error);
+      }
+    }
+
+    go();
+  </script>
+</body>
+</html>
